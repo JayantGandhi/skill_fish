@@ -7,14 +7,14 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
         .when('/', {
             templateUrl: 'views/home.html',
             controller: 'MainController',
-            title: ' - Home'
+            title: 'Home'
         })
 
         // nerds page that will use the CourseController
         .when('/courses', {
             templateUrl: 'views/course.html',
             controller: 'CourseController',
-            title: ' - Course List'
+            title: 'Course List'
         });
 
     $locationProvider.html5Mode(true);
