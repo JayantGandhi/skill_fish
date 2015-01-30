@@ -10,6 +10,12 @@ var bodyParser     = require('body-parser');
 var methodOverride = require('method-override');
 var mongoose       = require('mongoose');
 
+var passport       = require('passport');
+var flash          = require('connect-flash');
+
+var cookieParser   = require('cookie-parser');
+var session        = require('express-session');
+
 /**
  * Configuration
  */
@@ -22,6 +28,8 @@ var port = process.env.PORT || 8080
 
 // connect to our mongoDB database
 mongoose.connect(db.url);
+
+// require('./config/passport')(passport); // pass passport for configuration
 
 // get all data/stuff of the body (POST) parameters
 // parse application/json
@@ -38,6 +46,12 @@ app.use(methodOverride('X-HTTP-Method-Override'));
 
 // set the static files location /public/img will be /img for users
 app.use(express.static(__dirname + '/public'));
+
+// required for passport
+app.use(session({ secret: 'watamidoingihavenoidea' })); // session secret
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
+app.use(flash()); // use connect-flash for flash messages stored in session
 
 /**
  * Routes
