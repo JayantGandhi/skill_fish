@@ -10,7 +10,7 @@ module.exports = mongoose.model('Course', {
   title: {type: String, default: ''},
   instructor: {
     name: {type: String, default: ''},
-    id: {type: Number}
+    _id: {type: ObjectId}
   },
   description: {type: String, default: ''},
   location: {type: String, default: ''},
