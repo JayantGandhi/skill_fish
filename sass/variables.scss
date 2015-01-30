@@ -1,0 +1,11 @@
+/**
+ * Sass Variables
+ */
+
+// Colors
+$main-color: #ffcc00;
+$secondary-color: #660BAB;
+$tertiary-color: #104BA9;
+$main-color-hover: lighten($main-color, 20%);
+$secondary-color-hover: lighten($secondary-color, 20%);
+$tertiary-color-hover: lighten($tertiary-color, 20%);
