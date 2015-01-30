@@ -11,6 +11,8 @@ module.exports = function(app) {
     /**
      * server routes - handles api-routes
      */
+
+    // course index
     app.get('/api/courses', function(req, res) {
         // use mongoose to get all courses in the database
         Course.find(function(err, courses) {
@@ -24,7 +26,22 @@ module.exports = function(app) {
         });
     });
 
-    //TODO: add CRUD routes here
+    // course new
+    app.post('api/course/new', function(req, res) {
+        var course = new Course();
+
+        course.title = req.body.title;
+
+        course.save(function(err) {
+            if (err) {
+                res.send(err);
+            }
+
+            res.json({ message: 'Course created!' });
+        });
+    });
+
+    // course
 
     /**
      * frontend routes - angular will handle this so only load ./public/views/index.html

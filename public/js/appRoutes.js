@@ -6,13 +6,15 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
         // home page
         .when('/', {
             templateUrl: 'views/home.html',
-            controller: 'MainController'
+            controller: 'MainController',
+            title: ' - Home'
         })
 
         // nerds page that will use the CourseController
         .when('/courses', {
             templateUrl: 'views/course.html',
-            controller: 'CourseController'
+            controller: 'CourseController',
+            title: ' - Course List'
         });
 
     $locationProvider.html5Mode(true);
